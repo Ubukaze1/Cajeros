@@ -22,7 +22,7 @@ public class Hilo extends Thread{
                         throw new RuntimeException(e);
                     }
                 }
-                System.out.println("Hola Hola");
+                // System.out.println("Hola Hola");
             }
         }
     }
@@ -30,9 +30,9 @@ public class Hilo extends Thread{
     public synchronized int sacar(){
         int ultimo = lista.getUltimo();
         lista.pop();
-        lista.imprimir();
-        System.out.println(lista.getSize()+"Size Size");
-        System.out.println(llena+"Esta llena");
+        //lista.imprimir();
+        //System.out.println(lista.getSize()+"Size Size");
+        //System.out.println(llena+"Esta llena");
         notifyAll();
         System.out.println("Empezando de nuevo");
         llena = false;

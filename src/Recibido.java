@@ -1,9 +1,8 @@
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class Recibido implements Runnable{
     private DataMan dat;
     private Hilo h;
+
 
 
     public Recibido(DataMan dat, Hilo h){
@@ -13,16 +12,35 @@ public class Recibido implements Runnable{
 
     @Override
     public void run() {
+        Cajero caj = new Cajero(this);
+        Thread caj1 = new Thread(caj);
+        caj1.start();
+
+
         int num = 0;
         for(num = dat.recibe(); h.getSize() >= 0; num = dat.recibe()){
             System.out.println("Se ha recibido: "+num);
-            System.out.println("Hola mundo desde Pruebas");
+
+            caj.añadir(num);
 
             try {
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1000,2000));
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
     }
+
+    public synchronized void ww(){
+        try {
+            wait();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public synchronized void sta(){
+        notifyAll();
+    }
+
 }

@@ -20,7 +20,7 @@ public class Envio implements Runnable{
                     System.out.println("Aqui se saca");
 
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
@@ -34,7 +34,7 @@ public class Envio implements Runnable{
             } else {
                 try {
                     System.out.println("Esperar");
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
