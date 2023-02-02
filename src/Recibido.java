@@ -16,6 +16,7 @@ public class Recibido implements Runnable{
         int num = 0;
         for(num = dat.recibe(); h.getSize() >= 0; num = dat.recibe()){
             System.out.println("Se ha recibido: "+num);
+            System.out.println("Hola mundo desde Pruebas");
 
             try {
                 Thread.sleep(ThreadLocalRandom.current().nextInt(1000,2000));
