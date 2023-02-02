@@ -17,7 +17,7 @@ public class Envio implements Runnable{
             if (h.getSize() == 10){
                 while (true){
                     dat.envia(h.sacar());
-                    System.out.println("Aqui se saca");
+                    //System.out.println("Aqui se saca");
 
                     try {
                         Thread.sleep(100);
@@ -33,7 +33,7 @@ public class Envio implements Runnable{
                 */
             } else {
                 try {
-                    System.out.println("Esperar");
+                    //System.out.println("Esperar");
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);

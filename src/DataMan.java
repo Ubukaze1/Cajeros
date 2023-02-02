@@ -6,7 +6,7 @@ public class DataMan {
     public synchronized int recibe() {
         while (trans) {
             try {
-                System.out.println("EStoy esperando Recibe");
+                //System.out.println("EStoy esperando Recibe");
                 wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -20,7 +20,7 @@ public class DataMan {
     public synchronized void envia(int dato) {
         while (!trans) {
             try {
-                System.out.println("EStoy esperando Envio");
+                //System.out.println("EStoy esperando Envio");
                 wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

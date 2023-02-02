@@ -11,17 +11,17 @@ public class Cajero implements Runnable{
         this.ree = re;
     }
     @Override
-    public synchronized void run() {
+    public void run() {
         while (true){
             if (dato.size() > 0){
                 int one = dato.get(0);
-                dato.remove(0);
+                System.out.println("Ha Entrado -> "+ one);
                 salir(one);
             }
             if (dato.size() == 0){
                 try {
                     System.out.println("Esperando");
-                    wait();
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -34,23 +34,22 @@ public class Cajero implements Runnable{
     }
 
     public synchronized void añadir(int da){
-        notify();
 
-        if (dato.size() < 2) {
-            System.out.println("Ha Entrado ->"+ da);
+        if (dato.size() < 3) {
             dato.add(da);
+            System.out.println("En espera "+dato.size());
         } else {
-            System.out.println("Los clientes son en espera son");
             ree.ww();
         }
     }
 
-    public synchronized void salir(int d){
+    public void salir(int d){
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        dato.remove(0);
         System.out.println("A salido -> "+d);
         ree.sta();
     }

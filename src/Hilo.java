@@ -13,10 +13,10 @@ public class Hilo extends Thread{
                     lista.addPrimero(index);
                     index++;
                 }else {
-                    lista.imprimir();
+                    //lista.imprimir();
                     llena = true;
                     try {
-                        System.out.println("Esperando....");
+                        //System.out.println("Esperando....");
                         wait();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
@@ -34,7 +34,7 @@ public class Hilo extends Thread{
         //System.out.println(lista.getSize()+"Size Size");
         //System.out.println(llena+"Esta llena");
         notifyAll();
-        System.out.println("Empezando de nuevo");
+        //System.out.println("Empezando de nuevo");
         llena = false;
         return ultimo;
 

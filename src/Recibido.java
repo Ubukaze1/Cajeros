@@ -19,7 +19,7 @@ public class Recibido implements Runnable{
 
         int num = 0;
         for(num = dat.recibe(); h.getSize() >= 0; num = dat.recibe()){
-            System.out.println("Se ha recibido: "+num);
+            //System.out.println("Se ha recibido: "+num);
 
             caj.añadir(num);
 
